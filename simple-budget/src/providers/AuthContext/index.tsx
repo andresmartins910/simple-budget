@@ -32,12 +32,9 @@ interface AuthState {
 }
 
 interface AuthContextData {
-  // signup: (data: RegisterProps) => void;
-  // signin: (data: LoginProps) => void;
   logout: (path: string) => void;
   accessToken: string;
   user: User;
-  // errMessage: string;
   createRegister: (data: RegisterProps) => void;
   login: (data: LoginProps) => void;
 }
@@ -46,80 +43,6 @@ const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const history = useHistory();
-
-  //   const [errMessage, setErrMessage] = useState<string>("");
-
-  //   const [data, setData] = useState<AuthState>(() => {
-  //     const accessToken = localStorage.getItem("@SimpleBudget:accessToken");
-  //     const user = localStorage.getItem("@SimpleBudget:user");
-
-  //     if (accessToken && user) {
-  //       return {
-  //         accessToken,
-  //         user: JSON.parse(user),
-  //       };
-  //     }
-
-  //     return {} as AuthState;
-  //   });
-
-  //   const signup = (data: RegisterProps) => {
-  //     const newData = {
-  //       name: data.name,
-  //       email: data.email,
-  //       password: data.password,
-  //     };
-
-  //     api
-  //       .post("/register", newData)
-  //       .then((_) => {
-  //         history.push("/login");
-  //       })
-  //       .catch((err) => {
-  //         setErrMessage(err.message);
-  //       });
-  //   };
-
-  //   const signin = (data: LoginProps) => {
-  //     api
-  //       .post("/login", data)
-  //       .then((response) => {
-  //         const accessToken = response.data.accessToken;
-  //         const user = response.data.user;
-
-  //         localStorage. setItem("@SimpleBudget:accessToken", accessToken);
-  //         localStorage.setItem("@SimpleBudget:user", JSON.stringify(user));
-  //         history.push("/dashboard")
-  //         setData({ accessToken, user });
-  //       })
-  //       .catch((err) => {
-  //         setErrMessage(err.message);
-  //       });
-  //   };
-
-  // const logout = () => {
-  //   localStorage.removeItem("@SimpleBudget:accessToken");
-  //   localStorage.removeItem("@SimpleBudget:user");
-  //   history.push("/login")
-  // };
-
-  //   return (
-  //     <AuthContext.Provider
-  //       value={{
-  //         logout,
-  //         signup,
-  //         signin,
-  //         accessToken: data.accessToken,
-  //         user: data.user,
-  //         errMessage,
-  //       }}
-  //     >
-  //       {children}
-  //     </AuthContext.Provider>
-  //   );
-  // };
-
-  // export const useAuth = () => useContext(AuthContext);
 
   const toast = useToast();
 
